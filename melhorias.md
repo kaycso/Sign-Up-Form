@@ -1,0 +1,8 @@
+- não permitir números no nome
+- colocar um header com logo e navbar
+- criar um nav bar com opções de: login, sobre, contato
+- colocar opção para visualizar senha
+- mudar aparencia do input quando selecionado
+- OK colocar automáticamente caracteres necessários no input. Exemplo: em Data de Nascimento é necessário que o formato seja DD '/' MM '/' AAAA. OK
+- colocar seleção de código do país no input phone
+- criar verificação de senha no javascript para que só seja aceito senhas fortes (OK mínimo 8 caracteres OK, contendo um número, um caracter especial, e letras maiúsculas e minúsculas)
