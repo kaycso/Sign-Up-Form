@@ -17,14 +17,17 @@
 
 body {
     background-image: linear-gradient(#00191C, #001114);
+    min-height: 100vh;
     color: #fff;
     font-family: 'inter', sans-serif;
 }
 
 main {
-    margin: 48px;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 form {
@@ -32,9 +35,10 @@ form {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    padding: 24px;
     gap: 24px;
-    width: 500px;
+    padding: 24px;
+    width: 100%;
+    max-width: 500px;
     background-color: var(--background-color);
 }
 
@@ -95,6 +99,7 @@ input {
     padding: 4px 8px;
     height: 30px;
     font-size: 16px;
+    width: 100%;
 }
 
 button {
@@ -116,14 +121,4 @@ button {
 button:hover {
     background-color: var(--color-detail);
     color: var(--background-color);
-}
-
-@media (max-width: 500px) {
-    main {
-        margin: 20px;
-    }
-    
-    form {
-        padding: 16px;
-    }
 }
