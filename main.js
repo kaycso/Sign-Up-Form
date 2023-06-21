@@ -2,16 +2,20 @@ const buttonRegisterUser = document.getElementById('registerUser')
 const errorEmailMessage = document.getElementById('error-email')
 const errorPasswordMessage = document.getElementById('error-password')
 const errorConfirmedPassword = document.getElementById('error-passwordConfirmed')
-let passwordElement = document.getElementById('password')
-
 buttonRegisterUser.disabled = true
 
 // código para permitir apenas letras no input do nome
 document.getElementById('name').onkeypress = function(e) {
     var chr = String.fromCharCode(e.which);
-    if("qwertyuiopasdfghjklçzxcvbnmQWERTYUIOPASDFGHJKLÇZXCVBNM".indexOf(chr) < 0)
+    if("qwertyuiopasdfghjklçzxcvbnmQWERTYUIOPASDFGHJKLÇZXCVBNM ".indexOf(chr) < 0)
     return false;
 }
+
+document.getElementById("email").addEventListener('input', function(event){
+    if(confirmedEmail.value != "") {
+        emailVerification();
+    }
+})
 
 document.getElementById("confirmedEmail").addEventListener('input', function(event){
     emailVerification();
@@ -19,6 +23,9 @@ document.getElementById("confirmedEmail").addEventListener('input', function(eve
 
 document.getElementById('password').addEventListener('input', function(event){
     passwordValidation()
+    if(confirmedPassword.value != "") {
+        passwordVerification()
+    }
 })
 
 document.getElementById('confirmedPassword').addEventListener('input', function(event){
@@ -26,14 +33,9 @@ document.getElementById('confirmedPassword').addEventListener('input', function(
 })
 
 function emailVerification() {
-    let email = document.getElementById('email').value;
-    let confirmedEmail = document.getElementById('confirmedEmail').value;
-
-    if (email !== confirmedEmail) {
+    if (email.value !== confirmedEmail.value) {
         errorEmailMessage.classList.add('displayOn');
-        buttonRegisterUser.disabled = true
-
-        return 
+        return buttonRegisterUser.disabled = true
     }
     
     errorMessageExist(errorEmailMessage)
@@ -42,10 +44,9 @@ function emailVerification() {
 
 
 function passwordValidation() {
-    if(passwordElement.value.length < 8) {
+    if(password.value.length < 8) {
         errorPasswordMessage.classList.add('displayOn')
-        buttonRegisterUser.disabled = true
-        return
+        return buttonRegisterUser.disabled = true
     }
 
     errorMessageExist(errorPasswordMessage)
@@ -57,8 +58,7 @@ function passwordVerification() {
 
     if (password.value !== confirmedPassword) {
         errorConfirmedPassword.classList.add('displayOn')
-        buttonRegisterUser.disabled = true
-        return
+        return buttonRegisterUser.disabled = true
     }
 
     errorMessageExist(errorConfirmedPassword)
@@ -67,14 +67,11 @@ function passwordVerification() {
 
 function inputVerification() {
     if(errorEmailMessage.classList.value == 'displayOn') {
-        buttonRegisterUser.disabled = true
-        return
+        return buttonRegisterUser.disabled = true
     } else if(errorPasswordMessage.classList.value == 'displayOn'){
-        buttonRegisterUser.disabled = true
-        return
+        return buttonRegisterUser.disabled = true
     } else if(errorConfirmedPassword.classList.value == 'displayOn'){
-        buttonRegisterUser.disabled = true
-        return
+        return buttonRegisterUser.disabled = true
     } else {
         return buttonRegisterUser.disabled = false
     }
